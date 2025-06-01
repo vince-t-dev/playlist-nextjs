@@ -63,4 +63,8 @@ jq --argjson templates "$templates_json" \
 
 mv "$tmp_json" "$bundle_json"
 
+# 8. copy Next.js static assets (_next) to xpr/web/_nextjs
+rm -rf "$parent_path/xpr/web/_nextjs"
+cp -R "$parent_path/out/_next" "$parent_path/xpr/web/_nextjs"
+
 echo "✅ xpr/element/*.hbs and bundle.json 'templates' and 'skins' updated"
