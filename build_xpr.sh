@@ -1,17 +1,17 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# 0. Locate script dir
+# 0. locate script dir
 parent_path="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)"
 cd "$parent_path"
 
-# 1. Ensure element folder exists
+# 1. ensure element folder exists
 mkdir -p "$parent_path/xpr/element"
 
-# 2. Copy home page as index.hbs
+# 2. copy home page as index.hbs
 cp "$parent_path/xpr/web/index.html" "$parent_path/xpr/element/index.hbs"
 
-# 3. Collect section sub-pages (slug-based)
+# 3. collect section sub-pages (slug-based)
 slugs=()
 for dir in "$parent_path"/xpr/web/*; do
   if [ -d "$dir" ] && [ -f "$dir/index.html" ]; then
@@ -21,7 +21,7 @@ for dir in "$parent_path"/xpr/web/*; do
   fi
 done
 
-# 4. Collect playlist components (*.tsx) as skins
+# 4. collect playlist components (*.tsx) as skins
 skins=()
 for file in "$parent_path"/src/components/playlists/*.tsx; do
   [ -e "$file" ] || continue
@@ -30,7 +30,7 @@ for file in "$parent_path"/src/components/playlists/*.tsx; do
   skins+=("$filename")
 done
 
-# 5. Build templates JSON
+# 5. build templates JSON
 home_template='[{ "name": "Home Template", "element": "index", "options": {} }]'
 section_templates="$(printf '%s\n' "${slugs[@]}" | jq -R -s -c '
   split("\n")[:-1] | map({
@@ -42,7 +42,7 @@ section_templates="$(printf '%s\n' "${slugs[@]}" | jq -R -s -c '
 
 templates_json="$(jq -s add <(echo "$home_template") <(echo "$section_templates"))"
 
-# 6. Build skins JSON
+# 6. build skins JSON
 skins_json="$(printf '%s\n' "${skins[@]}" | jq -R -s -c '
   split("\n")[:-1] | map({
     name: .,
@@ -51,7 +51,7 @@ skins_json="$(printf '%s\n' "${skins[@]}" | jq -R -s -c '
   })
 ')"
 
-# 7. Inject into bundle.json
+# 7. inject into bundle.json
 bundle_json="$parent_path/xpr/bundle.json"
 tmp_json="${bundle_json}.tmp"
 

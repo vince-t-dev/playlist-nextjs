@@ -1,5 +1,5 @@
 {
   "version": 1,
-  "outDirectory": "/Users/vince/code/playlist-nextjs/.next/export",
-  "success": false
+  "outDirectory": "/Users/vince/code/playlist-nextjs/out",
+  "success": true
 }

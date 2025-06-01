@@ -1,6 +1,11 @@
 {
   "templates": [
     {
+      "name": "Home Template",
+      "element": "index",
+      "options": {}
+    },
+    {
       "name": "About Template",
       "element": "about",
       "options": {}
