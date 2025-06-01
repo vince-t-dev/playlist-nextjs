@@ -22,8 +22,8 @@ export default function Playlists({
     section,
 }: PlaylistsProps): ReactElement {
     const playlistEntries = playlists.map((p) => {
-        // 1. strip off everything before ":playlist-astro/element/" so that `key` becomes e.g. "playlist_1".
-        const key = p.RendererBundlePath.replace(/^.*:playlist-astro\/element\//, '');
+        // 1. strip off everything before ":playlist-nextjs/element/" so that `key` becomes e.g. "playlist_1".
+        const key = p.RendererBundlePath.replace(/^.*:playlist-nextjs\/element\//, '');
 
         // 2. dynamically import the file under src/components/playlists/<key>.tsx
         const Component = dynamic(() => import(`@/components/playlists/${key}`));
