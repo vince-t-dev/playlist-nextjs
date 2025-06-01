@@ -6,7 +6,7 @@ const nextConfig = {
 	trailingSlash: true,
 
 	// expresia static deployment
-	basePath: isProd ? "/__xpr__/pub_engine/playlist-nextjs/web" : "",
+	// basePath: isProd ? "/__xpr__/pub_engine/playlist-nextjs/web" : "",
 	assetPrefix: isProd ? "/__xpr__/pub_engine/playlist-nextjs/web/" : "",
 
 	// disable image optimization for static export compatibility

@@ -24,7 +24,7 @@ export default function Navbar({ items }: NavbarProps) {
                         !item.Invisible ? (
                             <li key={item.Slug}>
                                 <Link
-                                    href={`/${item.Slug}`}
+                                    href={`${item.Slug}`}
                                     className="hover:text-slate-900 transition-colors"
                                 >
                                     {item.Name}
