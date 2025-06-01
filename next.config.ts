@@ -15,16 +15,16 @@ const nextConfig = {
 	},
 
 	// expresia static deployment: resolving json data paths
-	async rewrites() {
-		return isProd
-			? [
-				{
-					source: "/__xpr__/pub_engine/playlist-nextjs/web/_next/data/:path*",
-					destination: "/_next/data/:path*",
-				},
-			]
-			: [];
-	},
+	// async rewrites() {
+	// 	return isProd
+	// 		? [
+	// 			{
+	// 				source: "/__xpr__/pub_engine/playlist-nextjs/web/_next/data/:path*",
+	// 				destination: "/_next/data/:path*",
+	// 			},
+	// 		]
+	// 		: [];
+	// },
 	
 	// env variables
 	env: {
