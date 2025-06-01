@@ -2,8 +2,16 @@
   "version": 3,
   "pages404": true,
   "caseSensitive": false,
-  "basePath": "",
+  "basePath": "/__xpr__/pub_engine/playlist-nextjs/web",
   "redirects": [
+    {
+      "source": "/__xpr__/pub_engine/playlist-nextjs/web",
+      "destination": "/__xpr__/pub_engine/playlist-nextjs/web/",
+      "basePath": false,
+      "internal": true,
+      "statusCode": 308,
+      "regex": "^/__xpr__/pub_engine/playlist-nextjs/web$"
+    },
     {
       "source": "/:file((?!\\.well-known(?:/.*)?)(?:[^/]+/)*[^/]+\\.\\w+)/",
       "destination": "/:file",
@@ -47,15 +55,15 @@
   "dataRoutes": [
     {
       "page": "/",
-      "dataRouteRegex": "^/_next/data/vQnG0ZOYOuuuvzGntz7OJ/index\\.json$"
+      "dataRouteRegex": "^/_next/data/0G7sjvtI_CUXJq3h_vhVP/index\\.json$"
     },
     {
       "page": "/[slug]",
       "routeKeys": {
         "nxtPslug": "nxtPslug"
       },
-      "dataRouteRegex": "^/_next/data/vQnG0ZOYOuuuvzGntz7OJ/([^/]+?)\\.json$",
-      "namedDataRouteRegex": "^/_next/data/vQnG0ZOYOuuuvzGntz7OJ/(?<nxtPslug>[^/]+?)\\.json$"
+      "dataRouteRegex": "^/_next/data/0G7sjvtI_CUXJq3h_vhVP/([^/]+?)\\.json$",
+      "namedDataRouteRegex": "^/_next/data/0G7sjvtI_CUXJq3h_vhVP/(?<nxtPslug>[^/]+?)\\.json$"
     }
   ],
   "rsc": {
@@ -74,5 +82,15 @@
     "pathHeader": "x-nextjs-rewritten-path",
     "queryHeader": "x-nextjs-rewritten-query"
   },
-  "rewrites": []
+  "rewrites": {
+    "beforeFiles": [
+      {
+        "source": "/__xpr__/pub_engine/playlist-nextjs/web//_next/:path+",
+        "destination": "/__xpr__/pub_engine/playlist-nextjs/web/_next/:path+",
+        "regex": "^/__xpr__/pub_engine/playlist-nextjs/web//_next(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))(?:/)?$"
+      }
+    ],
+    "afterFiles": [],
+    "fallback": []
+  }
 }
