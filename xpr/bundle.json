@@ -43,18 +43,18 @@
   ],
   "skins": [
     {
-      "name": "playlist_1",
-      "element": "playlist_1",
+      "name": "next_playlist_a",
+      "element": "next_playlist_a",
       "options": {}
     },
     {
-      "name": "playlist_2",
-      "element": "playlist_2",
+      "name": "next_playlist_b",
+      "element": "next_playlist_b",
       "options": {}
     },
     {
-      "name": "playlist_3",
-      "element": "playlist_3",
+      "name": "next_playlist_c",
+      "element": "next_playlist_c",
       "options": {}
     }
   ]
