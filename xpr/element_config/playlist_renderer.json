@@ -1,0 +1,12 @@
+{
+    "datasources": [
+        {
+            "name" : "PlaylistRenderer",
+            "scripts" : [
+                {
+                    "path" : "/playlist_renderer"
+                }
+            ]
+        }
+    ]
+}

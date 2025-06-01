@@ -1,0 +1,13 @@
+{
+    "datasources": [
+        {
+            "path" : "trinity_request",
+            "name" : "TrinityRequest",
+            "scripts" : [
+                {
+                    "path" : "/trinity_request"
+                }
+            ]
+        }
+    ]
+}

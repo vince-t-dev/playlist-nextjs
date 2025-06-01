@@ -1,0 +1,13 @@
+{
+    "datasources": [
+        {
+            "path" : "groq_request",
+            "name" : "GroqRequest",
+            "scripts" : [
+                {
+                    "path" : "/groq_request"
+                }
+            ]
+        }
+    ]
+}

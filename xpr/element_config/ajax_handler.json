@@ -1,0 +1,13 @@
+{
+    "datasources": [
+        {
+            "path" : "ajax_handler",
+            "name" : "AjaxHandler",
+            "scripts" : [
+                {
+                    "path" : "/ajax_handler"
+                }
+            ]
+        }
+    ]
+}

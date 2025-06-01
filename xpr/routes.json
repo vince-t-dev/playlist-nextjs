@@ -1,0 +1,11 @@
+[
+    {
+        "method" : "GET",
+        "route" : "/template_renderer",
+        "script" : {
+            "path" : "/playlist_renderer",
+            "options" : {}
+        },
+        "element" : "/ajax/template_renderer"
+    }
+]

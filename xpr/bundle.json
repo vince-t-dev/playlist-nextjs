@@ -1,0 +1,61 @@
+{
+  "templates": [
+    {
+      "name": "About Template",
+      "element": "about",
+      "options": {}
+    },
+    {
+      "name": "Destinations Template",
+      "element": "destinations",
+      "options": {}
+    },
+    {
+      "name": "Editor Template",
+      "element": "editor",
+      "options": {}
+    },
+    {
+      "name": "Itineraries Template",
+      "element": "itineraries",
+      "options": {}
+    },
+    {
+      "name": "Markdown-page Template",
+      "element": "markdown-page",
+      "options": {}
+    },
+    {
+      "name": "Reviews Template",
+      "element": "reviews",
+      "options": {}
+    },
+    {
+      "name": "Socialmedia Template",
+      "element": "socialmedia",
+      "options": {}
+    },
+    {
+      "name": "Speakersocialmedia Template",
+      "element": "speakersocialmedia",
+      "options": {}
+    }
+  ],
+  "skins": [
+    {
+      "name": "playlist_1",
+      "element": "playlist_1",
+      "options": {}
+    },
+    {
+      "name": "playlist_2",
+      "element": "playlist_2",
+      "options": {}
+    },
+    {
+      "name": "playlist_3",
+      "element": "playlist_3",
+      "options": {}
+    }
+  ]
+}
