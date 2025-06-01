@@ -31,13 +31,16 @@ for file in "$parent_path"/src/components/playlists/*.tsx; do
 done
 
 # 5. Build templates JSON
-templates_json="$(printf '%s\n' "${slugs[@]}" | jq -R -s -c '
+home_template='[{ "name": "Home Template", "element": "index", "options": {} }]'
+section_templates="$(printf '%s\n' "${slugs[@]}" | jq -R -s -c '
   split("\n")[:-1] | map({
     name: ((.[0:1] | ascii_upcase) + .[1:] + " Template"),
     element: .,
     options: {}
   })
 ')"
+
+templates_json="$(jq -s add <(echo "$home_template") <(echo "$section_templates"))"
 
 # 6. Build skins JSON
 skins_json="$(printf '%s\n' "${skins[@]}" | jq -R -s -c '
@@ -54,10 +57,7 @@ tmp_json="${bundle_json}.tmp"
 
 jq --argjson templates "$templates_json" \
    --argjson skins "$skins_json" '
-  def idx:
-    ([.templates[]? | select(.element=="index")]
-     // [{ name:"Home Template", element:"index", options:{} }]);
-  .templates = idx + $templates
+  .templates = $templates
   | .skins = $skins
 ' "$bundle_json" > "$tmp_json"
 

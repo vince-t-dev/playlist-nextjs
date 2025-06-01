@@ -5,13 +5,12 @@ async function post<T>(action: string, params = {}): Promise<T> {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ action, ...params }),
-        // cache: "no-store"
+        cache: "no-store"
     });
 
     if (!res.ok) {
         throw new Error(`API error (${action}): ${res.statusText}`);
     }
-
     return res.json();
 }
 
