@@ -6,7 +6,7 @@ const nextConfig = {
 	trailingSlash: true,
 
 	// expresia static deployment
-	basePath: isProd ? "/__xpr__/pub_engine/playlist-nextjs/web" : "",
+	// basePath: isProd ? "/__xpr__/pub_engine/playlist-nextjs/web" : "",
 	assetPrefix: isProd ? "/__xpr__/pub_engine/playlist-nextjs/web/" : "",
 
 	// disable image optimization for static export compatibility
@@ -14,6 +14,18 @@ const nextConfig = {
 		unoptimized: true,
 	},
 
+	async rewrites() {
+		return isProd
+			? [
+				{
+					source:
+						"/__xpr__/pub_engine/playlist-nextjs/web/_next/data/:path*",
+					destination: "/_next/data/:path*",
+				},
+			]
+			: [];
+	},
+	
 	// env variables
 	env: {
 		DOMAIN_URL: process.env.DOMAIN_URL,
