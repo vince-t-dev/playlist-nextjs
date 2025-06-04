@@ -5,24 +5,11 @@
   "basePath": "",
   "redirects": [
     {
-      "source": "/:file((?!\\.well-known(?:/.*)?)(?:[^/]+/)*[^/]+\\.\\w+)/",
-      "destination": "/:file",
-      "internal": true,
-      "missing": [
-        {
-          "type": "header",
-          "key": "x-nextjs-data"
-        }
-      ],
-      "statusCode": 308,
-      "regex": "^(?:/((?!\\.well-known(?:/.*)?)(?:[^/]+/)*[^/]+\\.\\w+))/$"
-    },
-    {
-      "source": "/:notfile((?!\\.well-known(?:/.*)?)(?:[^/]+/)*[^/\\.]+)",
-      "destination": "/:notfile/",
+      "source": "/:path+/",
+      "destination": "/:path+",
       "internal": true,
       "statusCode": 308,
-      "regex": "^(?:/((?!\\.well-known(?:/.*)?)(?:[^/]+/)*[^/\\.]+))$"
+      "regex": "^(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))/$"
     }
   ],
   "headers": [],
@@ -47,15 +34,15 @@
   "dataRoutes": [
     {
       "page": "/",
-      "dataRouteRegex": "^/_next/data/lthF__nUivU2ipRRWjU6P/index\\.json$"
+      "dataRouteRegex": "^/_next/data/kL38OKNL66gHVsWDS7GJm/index\\.json$"
     },
     {
       "page": "/[slug]",
       "routeKeys": {
         "nxtPslug": "nxtPslug"
       },
-      "dataRouteRegex": "^/_next/data/lthF__nUivU2ipRRWjU6P/([^/]+?)\\.json$",
-      "namedDataRouteRegex": "^/_next/data/lthF__nUivU2ipRRWjU6P/(?<nxtPslug>[^/]+?)\\.json$"
+      "dataRouteRegex": "^/_next/data/kL38OKNL66gHVsWDS7GJm/([^/]+?)\\.json$",
+      "namedDataRouteRegex": "^/_next/data/kL38OKNL66gHVsWDS7GJm/(?<nxtPslug>[^/]+?)\\.json$"
     }
   ],
   "rsc": {
