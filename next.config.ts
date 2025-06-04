@@ -9,9 +9,9 @@ const nextConfig = {
 		? "/__xpr__/pub_engine/playlist-nextjs/web/"
 		: undefined,
 
-	basePath: isProd
-		? "/__xpr__/pub_engine/playlist-nextjs/web"
-		: undefined,
+	// basePath: isProd
+	// 	? "/__xpr__/pub_engine/playlist-nextjs/web"
+	// 	: undefined,
 
 	images: {
 		unoptimized: true,
