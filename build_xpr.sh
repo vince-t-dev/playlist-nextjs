@@ -79,4 +79,12 @@ jq --argjson templates "$templates_json" \
 
 mv "$tmp_json" "$bundle_json"
 
+# 8. patch exported HTML files to rewrite data URLs
+find "$parent_path/xpr/web" -name "*.html" -exec sed -i '' \
+  -e 's|/_next/data/|/__xpr__/pub_engine/playlist-nextjs/web/_next/data/|g' {} +
+
+  find "$parent_path/xpr/web/_next" -name "*.js" -exec sed -i '' \
+  -e 's|/_next/data/|/__xpr__/pub_engine/playlist-nextjs/web/_next/data/|g' {} +
+
+
 echo "✅ xpr/element/*.hbs and bundle.json 'templates' + 'skins' updated"
