@@ -17,14 +17,15 @@ const nextConfig = {
 
 	// expresia static deployment: resolving json data paths
 	async rewrites() {
-		return isProd
-			? [
+		// return isProd
+			// ? [
+		return [
 				{
 					source: "/_next/data/:path*",
 					destination: "/__xpr__/pub_engine/playlist-nextjs/web/_next/data/:path*"
 				},
 			]
-			: [];
+			// : [];
 	},
 	
 	// env variables
