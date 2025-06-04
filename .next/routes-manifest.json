@@ -47,15 +47,15 @@
   "dataRoutes": [
     {
       "page": "/",
-      "dataRouteRegex": "^/_next/data/5abVaG1EpVNYnAlLRz\\-Y3/index\\.json$"
+      "dataRouteRegex": "^/_next/data/ymVKn8zgnhuAzbVKVOxEi/index\\.json$"
     },
     {
       "page": "/[slug]",
       "routeKeys": {
         "nxtPslug": "nxtPslug"
       },
-      "dataRouteRegex": "^/_next/data/5abVaG1EpVNYnAlLRz\\-Y3/([^/]+?)\\.json$",
-      "namedDataRouteRegex": "^/_next/data/5abVaG1EpVNYnAlLRz\\-Y3/(?<nxtPslug>[^/]+?)\\.json$"
+      "dataRouteRegex": "^/_next/data/ymVKn8zgnhuAzbVKVOxEi/([^/]+?)\\.json$",
+      "namedDataRouteRegex": "^/_next/data/ymVKn8zgnhuAzbVKVOxEi/(?<nxtPslug>[^/]+?)\\.json$"
     }
   ],
   "rsc": {
@@ -82,13 +82,7 @@
         "regex": "^/__xpr__/pub_engine/playlist-nextjs/web//_next(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))(?:/)?$"
       }
     ],
-    "afterFiles": [
-      {
-        "source": "/__xpr__/pub_engine/playlist-nextjs/web/_next/data/:path*",
-        "destination": "/_next/data/:path*",
-        "regex": "^/__xpr__/pub_engine/playlist-nextjs/web/_next/data(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))?(?:/)?$"
-      }
-    ],
+    "afterFiles": [],
     "fallback": []
   }
 }
