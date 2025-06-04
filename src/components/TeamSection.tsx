@@ -25,7 +25,7 @@ const teamMembers = [
 
 export default function TeamSection() {
     return (
-        <section className="px-4 py-20 bg-gradient-to-b from-slate-50 to-slate-100 min-h-screen">
+        <section className="px-4 py-20 bg-gradient-to-b from-slate-50 to-slate-100 min-h-[500px]">
             <div className="max-w-6xl mx-auto text-center space-y-12 my-5">
                 <div className="space-y-4">
                     <h1 className="text-4xl font-extrabold text-slate-800">Meet Playlist One</h1>
