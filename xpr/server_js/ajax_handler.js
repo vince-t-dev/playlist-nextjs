@@ -434,7 +434,6 @@ exports.process = function(context, options) {
                 Locale__eq: "en_CA", // request.language.Locale
                 per_page: "all"
             }
-            xpr_utils.__errlog("getPlaylists jsonData: " + JSON.stringify(jsonData));
             if (jsonData.slug) 
                 playlists_params.related_Section_Slug__eq = jsonData.slug;
             else
