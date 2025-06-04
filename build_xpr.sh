@@ -16,6 +16,21 @@ else
 	exit 1
 fi
 
+
+
+
+
+# 2.5. patch _next/data/ paths with prefix for static export support
+prefix="/__xpr__/pub_engine/playlist-nextjs/web"
+echo "🔧 Rewriting _next/data paths with prefix: $prefix"
+
+find "$parent_path/xpr/web" -type f \( -name "*.html" -o -name "*.js" -o -name "*.json" \) | while read -r file; do
+	sed -i '' -e "s|\"/_next/data/|\"$prefix/_next/data/|g" "$file"
+	sed -i '' -e "s|'/_next/data/|'$prefix/_next/data/|g" "$file"
+done
+
+
+
 # 3. collect section sub-pages (slug-based)
 slugs=()
 for dir in "$parent_path"/xpr/web/*; do

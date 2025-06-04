@@ -49,7 +49,7 @@
         256,
         384
       ],
-      "path": "/__xpr__/pub_engine/playlist-nextjs/web/_next/image/",
+      "path": "/_next/image/",
       "loader": "default",
       "loaderFile": "",
       "domains": [],
@@ -72,9 +72,9 @@
       "pagesBufferLength": 5
     },
     "amp": {
-      "canonicalBase": "/__xpr__/pub_engine/playlist-nextjs/web"
+      "canonicalBase": ""
     },
-    "basePath": "/__xpr__/pub_engine/playlist-nextjs/web",
+    "basePath": "",
     "sassOptions": {},
     "trailingSlash": true,
     "i18n": null,
