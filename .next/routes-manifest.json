@@ -5,11 +5,24 @@
   "basePath": "",
   "redirects": [
     {
-      "source": "/:path+/",
-      "destination": "/:path+",
+      "source": "/:file((?!\\.well-known(?:/.*)?)(?:[^/]+/)*[^/]+\\.\\w+)/",
+      "destination": "/:file",
+      "internal": true,
+      "missing": [
+        {
+          "type": "header",
+          "key": "x-nextjs-data"
+        }
+      ],
+      "statusCode": 308,
+      "regex": "^(?:/((?!\\.well-known(?:/.*)?)(?:[^/]+/)*[^/]+\\.\\w+))/$"
+    },
+    {
+      "source": "/:notfile((?!\\.well-known(?:/.*)?)(?:[^/]+/)*[^/\\.]+)",
+      "destination": "/:notfile/",
       "internal": true,
       "statusCode": 308,
-      "regex": "^(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))/$"
+      "regex": "^(?:/((?!\\.well-known(?:/.*)?)(?:[^/]+/)*[^/\\.]+))$"
     }
   ],
   "headers": [],
@@ -34,15 +47,15 @@
   "dataRoutes": [
     {
       "page": "/",
-      "dataRouteRegex": "^/_next/data/kL38OKNL66gHVsWDS7GJm/index\\.json$"
+      "dataRouteRegex": "^/_next/data/08JPDgBRhat4So2bZa7S\\-/index\\.json$"
     },
     {
       "page": "/[slug]",
       "routeKeys": {
         "nxtPslug": "nxtPslug"
       },
-      "dataRouteRegex": "^/_next/data/kL38OKNL66gHVsWDS7GJm/([^/]+?)\\.json$",
-      "namedDataRouteRegex": "^/_next/data/kL38OKNL66gHVsWDS7GJm/(?<nxtPslug>[^/]+?)\\.json$"
+      "dataRouteRegex": "^/_next/data/08JPDgBRhat4So2bZa7S\\-/([^/]+?)\\.json$",
+      "namedDataRouteRegex": "^/_next/data/08JPDgBRhat4So2bZa7S\\-/(?<nxtPslug>[^/]+?)\\.json$"
     }
   ],
   "rsc": {
@@ -64,9 +77,9 @@
   "rewrites": {
     "beforeFiles": [
       {
-        "source": "/__xpr__/pub_engine/playlist-nextjs/web//_next/:path+",
+        "source": "/__xpr__/pub_engine/playlist-nextjs/web/_next/:path+",
         "destination": "/_next/:path+",
-        "regex": "^/__xpr__/pub_engine/playlist-nextjs/web//_next(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))(?:/)?$"
+        "regex": "^/__xpr__/pub_engine/playlist-nextjs/web/_next(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))(?:/)?$"
       }
     ],
     "afterFiles": [],
