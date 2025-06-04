@@ -15,7 +15,7 @@
     },
     "distDir": ".next",
     "cleanDistDir": true,
-    "assetPrefix": "/__xpr__/pub_engine/playlist-nextjs/web",
+    "assetPrefix": "/__xpr__/pub_engine/playlist-nextjs/web/",
     "cacheMaxMemorySize": 52428800,
     "configOrigin": "next.config.ts",
     "useFileSystemPublicRoutes": true,

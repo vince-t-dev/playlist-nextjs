@@ -5,7 +5,9 @@ const nextConfig = {
 	output: "export",
 	trailingSlash: true,
 	distDir: "xpr/web",
-	assetPrefix: "/__xpr__/pub_engine/playlist-nextjs/web",
+	assetPrefix: isProd
+		? "/__xpr__/pub_engine/playlist-nextjs/web/"
+		: undefined,
 
 	// basePath: isProd
 	// 	? "/__xpr__/pub_engine/playlist-nextjs/web"

@@ -1,22 +1,22 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# 0. Locate script directory
+# 0. locate script directory
 parent_path="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)"
 cd "$parent_path"
 
-# 1. Ensure element folder exists
+# 1. ensure element folder exists
 mkdir -p "$parent_path/xpr/element"
 
-# 2. Copy home page from build output (distDir is xpr/web) to element/index.hbs
+# 2. copy home page from build output (distDir is xpr/web) to element/index.hbs
 if [ -f "$parent_path/xpr/web/index.html" ]; then
 	cp "$parent_path/xpr/web/index.html" "$parent_path/xpr/element/index.hbs"
 else
-	echo "❌ xpr/web/index.html not found. Did you run 'npm run build'?"
+	echo "xpr/web/index.html not found. Did you run 'npm run build'?"
 	exit 1
 fi
 
-# 3. Collect section sub-pages (slug-based)
+# 3. collect section sub-pages (slug-based)
 slugs=()
 for dir in "$parent_path"/xpr/web/*; do
 	if [ -d "$dir" ] && [ -f "$dir/index.html" ]; then
@@ -28,7 +28,7 @@ for dir in "$parent_path"/xpr/web/*; do
 	fi
 done
 
-# 4. Collect playlist components (*.tsx) as skins
+# 4. collect playlist components (*.tsx) as skins
 skins=()
 for file in "$parent_path"/src/components/playlists/*.tsx; do
 	[ -e "$file" ] || continue
@@ -37,7 +37,7 @@ for file in "$parent_path"/src/components/playlists/*.tsx; do
 	skins+=("$filename")
 done
 
-# 5. Build templates JSON
+# 5. build templates JSON
 home_template='[{ "name": "Home Template", "element": "index", "options": {} }]'
 
 if [ ${#slugs[@]} -gt 0 ]; then
@@ -54,7 +54,7 @@ fi
 
 templates_json="$(jq -s add <(echo "$home_template") <(echo "$section_templates"))"
 
-# 6. Build skins JSON
+# 6. build skins JSON
 if [ ${#skins[@]} -gt 0 ]; then
 	skins_json="$(printf '%s\n' "${skins[@]}" | jq -R -s -c '
 		split("\n")[:-1] | map({
@@ -67,7 +67,7 @@ else
 	skins_json='[]'
 fi
 
-# 7. Inject into bundle.json
+# 7. inject into bundle.json
 bundle_json="$parent_path/xpr/bundle.json"
 tmp_json="${bundle_json}.tmp"
 
@@ -78,5 +78,9 @@ jq --argjson templates "$templates_json" \
 ' "$bundle_json" > "$tmp_json"
 
 mv "$tmp_json" "$bundle_json"
+
+# 8. patch exported HTML files to rewrite data URLs
+find "$parent_path/xpr/web" -name "*.html" -exec sed -i '' \
+  -e 's|/_next/data/|/__xpr__/pub_engine/playlist-nextjs/web/_next/data/|g' {} +
 
 echo "✅ xpr/element/*.hbs and bundle.json 'templates' + 'skins' updated"
