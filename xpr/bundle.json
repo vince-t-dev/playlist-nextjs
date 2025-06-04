@@ -4,46 +4,6 @@
       "name": "Home Template",
       "element": "index",
       "options": {}
-    },
-    {
-      "name": "404 Template",
-      "element": "404",
-      "options": {}
-    },
-    {
-      "name": "About Template",
-      "element": "about",
-      "options": {}
-    },
-    {
-      "name": "Destinations Template",
-      "element": "destinations",
-      "options": {}
-    },
-    {
-      "name": "Editor Template",
-      "element": "editor",
-      "options": {}
-    },
-    {
-      "name": "Itineraries Template",
-      "element": "itineraries",
-      "options": {}
-    },
-    {
-      "name": "Reviews Template",
-      "element": "reviews",
-      "options": {}
-    },
-    {
-      "name": "Socialmedia Template",
-      "element": "socialmedia",
-      "options": {}
-    },
-    {
-      "name": "Speakersocialmedia Template",
-      "element": "speakersocialmedia",
-      "options": {}
     }
   ],
   "skins": [

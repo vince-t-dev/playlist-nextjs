@@ -3,15 +3,15 @@ const isProd = process.env.NODE_ENV === "production";
 /** @type {import('next').NextConfig} */
 const nextConfig = {
 	output: "export",
-	trailingSlash: true,
+	// trailingSlash: true,
 	distDir: "xpr/web",
 	assetPrefix: isProd
 		? "/__xpr__/pub_engine/playlist-nextjs/web/"
 		: undefined,
 
-	// basePath: isProd
-	// 	? "/__xpr__/pub_engine/playlist-nextjs/web"
-	// 	: undefined,
+	basePath: isProd
+		? "/__xpr__/pub_engine/playlist-nextjs/web"
+		: undefined,
 
 	images: {
 		unoptimized: true,

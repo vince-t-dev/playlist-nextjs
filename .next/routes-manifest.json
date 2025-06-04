@@ -2,27 +2,22 @@
   "version": 3,
   "pages404": true,
   "caseSensitive": false,
-  "basePath": "",
+  "basePath": "/__xpr__/pub_engine/playlist-nextjs/web",
   "redirects": [
     {
-      "source": "/:file((?!\\.well-known(?:/.*)?)(?:[^/]+/)*[^/]+\\.\\w+)/",
-      "destination": "/:file",
+      "source": "/__xpr__/pub_engine/playlist-nextjs/web/",
+      "destination": "/__xpr__/pub_engine/playlist-nextjs/web",
+      "basePath": false,
       "internal": true,
-      "missing": [
-        {
-          "type": "header",
-          "key": "x-nextjs-data"
-        }
-      ],
       "statusCode": 308,
-      "regex": "^(?:/((?!\\.well-known(?:/.*)?)(?:[^/]+/)*[^/]+\\.\\w+))/$"
+      "regex": "^/__xpr__/pub_engine/playlist-nextjs/web/$"
     },
     {
-      "source": "/:notfile((?!\\.well-known(?:/.*)?)(?:[^/]+/)*[^/\\.]+)",
-      "destination": "/:notfile/",
+      "source": "/:path+/",
+      "destination": "/:path+",
       "internal": true,
       "statusCode": 308,
-      "regex": "^(?:/((?!\\.well-known(?:/.*)?)(?:[^/]+/)*[^/\\.]+))$"
+      "regex": "^(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))/$"
     }
   ],
   "headers": [],
@@ -47,15 +42,15 @@
   "dataRoutes": [
     {
       "page": "/",
-      "dataRouteRegex": "^/_next/data/SVoavLtaCYLXBP0D5\\-Lk5/index\\.json$"
+      "dataRouteRegex": "^/_next/data/KXM64p2jeyzKDntjAzgi4/index\\.json$"
     },
     {
       "page": "/[slug]",
       "routeKeys": {
         "nxtPslug": "nxtPslug"
       },
-      "dataRouteRegex": "^/_next/data/SVoavLtaCYLXBP0D5\\-Lk5/([^/]+?)\\.json$",
-      "namedDataRouteRegex": "^/_next/data/SVoavLtaCYLXBP0D5\\-Lk5/(?<nxtPslug>[^/]+?)\\.json$"
+      "dataRouteRegex": "^/_next/data/KXM64p2jeyzKDntjAzgi4/([^/]+?)\\.json$",
+      "namedDataRouteRegex": "^/_next/data/KXM64p2jeyzKDntjAzgi4/(?<nxtPslug>[^/]+?)\\.json$"
     }
   ],
   "rsc": {
@@ -78,7 +73,7 @@
     "beforeFiles": [
       {
         "source": "/__xpr__/pub_engine/playlist-nextjs/web//_next/:path+",
-        "destination": "/_next/:path+",
+        "destination": "/__xpr__/pub_engine/playlist-nextjs/web/_next/:path+",
         "regex": "^/__xpr__/pub_engine/playlist-nextjs/web//_next(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))(?:/)?$"
       }
     ],
