@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { Button } from "@/components/ui/button";
 
 export default function Playlist2({ section, Name, _embedded }: any) {
@@ -26,14 +25,11 @@ export default function Playlist2({ section, Name, _embedded }: any) {
                     Meet the Creator
                 </h2>
                 <div className="flex flex-col md:flex-row gap-6 items-center">
-                    <div className="relative w-full h-48 md:w-60 md:h-48 shrink-0">
-                        <Image
+                    <div className="relative w-full h-48 md:w-60 md:h-48 shrink-0 overflow-hidden rounded-lg shadow-md">
+                        <img
                             src="https://picsum.photos/seed/project42/1200/800?randomnum=17"
                             alt="Profile Image"
-                            fill
-                            className="object-cover rounded-lg shadow-md transition-opacity duration-700"
-                            sizes="(max-width: 768px) 100vw, 240px"
-                            priority={false}
+                            className="object-cover w-full h-full"
                         />
                     </div>
                     <div className="space-y-4 text-slate-700">
