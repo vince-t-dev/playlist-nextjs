@@ -57,7 +57,7 @@ export default function Playlists({
                 key,
                 Component,
                 props: {
-                    ...p,
+                    playlist: p,
                     section,
                 },
             };

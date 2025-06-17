@@ -2,14 +2,14 @@
 
 import { Button } from "@/components/ui/button";
 
-export default function Playlist2({ section, Name, _embedded }: any) {
-    const html = _embedded?.PlaylistItems?.[0]?._embedded?.Article?.Html ?? "";
+export default function Playlist2({ section, playlist }: any) {
+    const html = playlist?._embedded?.PlaylistItems?.[0]?._embedded?.Article?.Html ?? "";
 
     return (
         <div className="bg-blue-50 flex flex-col items-center justify-center min-h-[500px] px-4 py-12 space-y-10">
             <div className="bg-white rounded-2xl shadow-xl p-8 max-w-2xl w-full space-y-6 text-center">
                 <h1 className="text-3xl font-bold tracking-tight text-slate-800">
-                    {section?.Name} - {Name}
+                    {section?.Name} - {playlist?.Name}
                 </h1>
                 <div
                     className="text-base text-slate-600"
