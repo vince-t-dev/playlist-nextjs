@@ -36,6 +36,11 @@
       "options": {}
     },
     {
+      "name": "Site-builder Template",
+      "element": "site-builder",
+      "options": {}
+    },
+    {
       "name": "Socialmedia Template",
       "element": "socialmedia",
       "options": {}
