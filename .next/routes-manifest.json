@@ -47,15 +47,15 @@
   "dataRoutes": [
     {
       "page": "/",
-      "dataRouteRegex": "^/_next/data/Ga2DPEJxFbrMiaIYPmuNZ/index\\.json$"
+      "dataRouteRegex": "^/_next/data/9jIdDe8XOcCfIGbInP7RD/index\\.json$"
     },
     {
       "page": "/[slug]",
       "routeKeys": {
         "nxtPslug": "nxtPslug"
       },
-      "dataRouteRegex": "^/_next/data/Ga2DPEJxFbrMiaIYPmuNZ/([^/]+?)\\.json$",
-      "namedDataRouteRegex": "^/_next/data/Ga2DPEJxFbrMiaIYPmuNZ/(?<nxtPslug>[^/]+?)\\.json$"
+      "dataRouteRegex": "^/_next/data/9jIdDe8XOcCfIGbInP7RD/([^/]+?)\\.json$",
+      "namedDataRouteRegex": "^/_next/data/9jIdDe8XOcCfIGbInP7RD/(?<nxtPslug>[^/]+?)\\.json$"
     }
   ],
   "rsc": {
