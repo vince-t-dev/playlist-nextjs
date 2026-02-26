@@ -3,20 +3,20 @@
 	"version": "0.1.0",
 	"private": true,
 	"scripts": {
-		"dev": "next dev --turbopack",
-		"build": "NODE_ENV=production next build && chmod +x ./build_xpr.sh && ./build_xpr.sh",
-		"start": "next start",
+		"dev": "next dev --turbopack -p 3001",
+		"start": "next start -p 3000",
+		"build": "next build",
 		"lint": "next lint"
 	},
 	"dependencies": {
 		"@radix-ui/react-slot": "^1.2.3",
 		"class-variance-authority": "^0.7.1",
 		"clsx": "^2.1.1",
-		"globby": "^14.1.0",
 		"lucide-react": "^0.511.0",
 		"next": "15.3.3",
 		"react": "^19.0.0",
 		"react-dom": "^19.0.0",
+		"sucrase": "^3.35.0",
 		"tailwind-merge": "^3.3.0"
 	},
 	"devDependencies": {

@@ -15,7 +15,7 @@
     },
     "distDir": ".next",
     "cleanDistDir": true,
-    "assetPrefix": "/__xpr__/pub_engine/playlist-nextjs/web/",
+    "assetPrefix": "",
     "cacheMaxMemorySize": 52428800,
     "configOrigin": "next.config.ts",
     "useFileSystemPublicRoutes": true,
@@ -91,7 +91,6 @@
     "logging": {},
     "expireTime": 31536000,
     "staticPageGenerationTimeout": 60,
-    "output": "export",
     "modularizeImports": {
       "@mui/icons-material": {
         "transform": "@mui/icons-material/{{member}}"
