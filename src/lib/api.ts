@@ -24,7 +24,7 @@ async function post<T>(
         "Content-Type": "application/json",
     };
     // Use the per-instance token, not the admin Expresia token
-    if (token) headers["xpr-token-backend"] = token;
+    if (token) headers["Authorization"] = `Bearer ${token}`;
 
     const res = await fetch(url.toString(), {
         method: "POST",

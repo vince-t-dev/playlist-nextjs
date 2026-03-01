@@ -18,7 +18,7 @@ export async function fetchBosonTemplate(
       headers: {
         Accept: "application/json",
         // Instance token — scoped to this user's site only
-        ...(token && { "xpr-token-backend": token }),
+        ...(token && { "Authorization": `Bearer ${token}` }),
       },
       cache: "no-store",
     });
