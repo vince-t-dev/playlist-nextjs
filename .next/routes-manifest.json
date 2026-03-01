@@ -47,15 +47,15 @@
   "dataRoutes": [
     {
       "page": "/",
-      "dataRouteRegex": "^/_next/data/s1F8S_MYPNYezIZUh0TGn/index\\.json$"
+      "dataRouteRegex": "^/_next/data/E5wIeP_ybgDLC68dG8ZoF/index\\.json$"
     },
     {
       "page": "/[slug]",
       "routeKeys": {
         "nxtPslug": "nxtPslug"
       },
-      "dataRouteRegex": "^/_next/data/s1F8S_MYPNYezIZUh0TGn/([^/]+?)\\.json$",
-      "namedDataRouteRegex": "^/_next/data/s1F8S_MYPNYezIZUh0TGn/(?<nxtPslug>[^/]+?)\\.json$"
+      "dataRouteRegex": "^/_next/data/E5wIeP_ybgDLC68dG8ZoF/([^/]+?)\\.json$",
+      "namedDataRouteRegex": "^/_next/data/E5wIeP_ybgDLC68dG8ZoF/(?<nxtPslug>[^/]+?)\\.json$"
     }
   ],
   "rsc": {
@@ -74,5 +74,16 @@
     "pathHeader": "x-nextjs-rewritten-path",
     "queryHeader": "x-nextjs-rewritten-query"
   },
-  "rewrites": []
+  "rewrites": [
+    {
+      "source": "/media/:path*",
+      "destination": "https://honestshockedtiger.xpr.cloud/media/:path*",
+      "regex": "^/media(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))?(?:/)?$"
+    },
+    {
+      "source": "/files/:path*",
+      "destination": "https://honestshockedtiger.xpr.cloud/files/:path*",
+      "regex": "^/files(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))?(?:/)?$"
+    }
+  ]
 }

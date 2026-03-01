@@ -283,6 +283,20 @@
     "configFileName": "next.config.ts",
     "turbopack": {
       "root": "/Users/vince/code/playlist-nextjs"
+    },
+    "_originalRewrites": {
+      "beforeFiles": [],
+      "afterFiles": [
+        {
+          "source": "/media/:path*",
+          "destination": "https://honestshockedtiger.xpr.cloud/media/:path*"
+        },
+        {
+          "source": "/files/:path*",
+          "destination": "https://honestshockedtiger.xpr.cloud/files/:path*"
+        }
+      ],
+      "fallback": []
     }
   },
   "appDir": "/Users/vince/code/playlist-nextjs",
