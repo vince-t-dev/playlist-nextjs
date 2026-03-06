@@ -6,7 +6,7 @@ services:
         DOMAIN_URL: ${DOMAIN_URL}
         PUBLIC_API_BASE: ${PUBLIC_API_BASE}
     ports:
-      - "3000:3000"
+      - "3001:3000"
     environment:
       DOMAIN_URL: ${DOMAIN_URL}
       PUBLIC_API_BASE: ${PUBLIC_API_BASE}
