@@ -1,10 +1,14 @@
 services:
   nextjs:
-    build: .
+    build:
+      context: .
+      args:
+        DOMAIN_URL: ${DOMAIN_URL}
+        PUBLIC_API_BASE: ${PUBLIC_API_BASE}
     ports:
       - "3000:3000"
     environment:
-      DOMAIN_URL: https://YourInstance.xpr.cloud
-      PUBLIC_API_BASE: ""
+      DOMAIN_URL: ${DOMAIN_URL}
+      PUBLIC_API_BASE: ${PUBLIC_API_BASE}
       NODE_ENV: production
     restart: unless-stopped
