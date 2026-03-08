@@ -1,4 +1,6 @@
 services:
+
+  # ── Next.js frontend — publicly available at localhost:3001 ─────────────────
   nextjs:
     build:
       context: .
@@ -8,7 +10,29 @@ services:
     ports:
       - "3001:3000"
     environment:
+      NODE_ENV: production
       DOMAIN_URL: ${DOMAIN_URL}
       PUBLIC_API_BASE: ${PUBLIC_API_BASE}
-      NODE_ENV: production
     restart: unless-stopped
+
+  # ── Express API — uncomment when write operations are needed ────────────────
+  # api:
+  #   build:
+  #     context: ./expresia-api
+  #   ports:
+  #     - "3002:3002"
+  #   environment:
+  #     NODE_ENV: production
+  #     PORT: 3002
+  #     DOMAIN_URL: ${DOMAIN_URL}
+  #     PUBLIC_API_BASE: ${PUBLIC_API_BASE}
+  #     EXPRESIA_TOKEN: ${EXPRESIA_TOKEN}
+  #     EXPRESIA_USER: ${EXPRESIA_USER}
+  #     EXPRESIA_PASS: ${EXPRESIA_PASS}
+  #     NEXTJS_URL: http://nextjs:3000
+  #   restart: unless-stopped
+  #   healthcheck:
+  #     test: ["CMD", "wget", "-qO-", "http://localhost:3002/health"]
+  #     interval: 30s
+  #     timeout: 5s
+  #     retries: 3

@@ -7,6 +7,7 @@ interface PlaylistsProps {
 }
 
 export default function Playlists({ playlists, section }: PlaylistsProps): ReactElement {
+    console.log('playlists!!!', playlists);
     return (
         <>
             {playlists.map((playlist) =>
