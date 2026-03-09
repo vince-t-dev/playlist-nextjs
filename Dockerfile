@@ -10,7 +10,7 @@ WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
-# Build Next.js only (skip build_xpr.sh — that's for Expresia cloud deploys)
+# Build Next.js only
 ARG DOMAIN_URL
 ARG PUBLIC_API_BASE
 ENV DOMAIN_URL=$DOMAIN_URL

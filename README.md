@@ -4,9 +4,6 @@
 # install
 pnpm i
 
-# requirement for build_xpr.sh
-brew install jq 
-
 # start
 pnpm dev
 # build

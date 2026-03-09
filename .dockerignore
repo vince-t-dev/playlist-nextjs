@@ -4,4 +4,3 @@ node_modules
 *.zip
 __MACOSX
 xpr
-build_xpr.sh

@@ -48,8 +48,6 @@ async function compile(source: string): Promise<ComponentType<any> | null> {
 
   try {
     const { transform } = await import("sucrase");
-    const lines = cleaned.split("\n");
-    console.log("[DynamicPlaylist] cleaned source line 135-140:", lines.slice(134, 140).join("\n"));
     const { code } = transform(cleaned, {
       transforms: ["jsx", "typescript"],
       jsxRuntime: "classic",
