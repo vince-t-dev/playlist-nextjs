@@ -1,6 +1,14 @@
 {
+  "src/components/DynamicPage.tsx -> sucrase": {
+    "id": 468,
+    "files": [
+      "static/chunks/468.1d3ebfe3af25c273.js"
+    ]
+  },
   "src/components/DynamicPlaylist.tsx -> sucrase": {
     "id": 468,
-    "files": []
+    "files": [
+      "static/chunks/468.1d3ebfe3af25c273.js"
+    ]
   }
 }
