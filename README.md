@@ -4,8 +4,12 @@
 # install
 pnpm i
 
-# start
-pnpm dev
+# terminal 1 — Next.js
+pnpm dev                         # → localhost:3001
+
+# terminal 2 — expresia-api server
+cd expresia-api && pnpm dev      # → localhost:3002
+
 # build
 pnpm build
 ```

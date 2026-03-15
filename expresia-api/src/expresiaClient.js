@@ -1,4 +1,24 @@
 // expresiaClient.js
+//
+// HTTP helpers for talking to the Expresia admin API.
+// This module runs inside the expresia-api container only — never in Next.js.
+//
+// xprApi   — authenticated calls to the Expresia REST API (/api/...).
+//            Attaches the instance bearer token from the Authorization header
+//            forwarded by the route handler. Used for all write operations and
+//            any read that requires auth (playlists, files, bundle entities).
+//
+// fetchBundle — public fetch of a compiled Boson template string by
+//               RendererBundlePath. No token required. Used by getPlaylists
+//               to attach _template to each playlist for SSR rendering.
+//
+// xprWww   — calls to expresia.com external endpoints (intro, producer profile).
+//            Uses the static EXPRESIA_TOKEN env var, not the instance token.
+//
+// Note: Tailwind CSS compilation (@tailwindcss/node) also runs in this container
+//       via the compileCss action in actions/index.js. It lives here rather than
+//       in Next.js because the LightningCSS native binaries it requires are
+//       incompatible with the stripped Next.js production image.
 
 const fetch = require("node-fetch");
 

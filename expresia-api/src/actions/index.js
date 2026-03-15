@@ -3,6 +3,17 @@
 // Each handler receives (body, instanceToken) and returns a plain object.
 
 const { xprApi, fetchBundle, xprWww } = require("../expresiaClient");
+const crypto = require("crypto");
+
+// Lazily required so the module loads even if @tailwindcss/node isn't installed yet
+let _compile = null;
+async function getTailwindCompile() {
+    if (!_compile) _compile = (await require("@tailwindcss/node")).compile;
+    return _compile;
+}
+
+// In-memory cache: sha256(cssText) → compiled CSS string
+const cssCache = new Map();
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
 
@@ -492,6 +503,55 @@ async function checkCustomerPrivilege(token) {
     }
 }
 
+const fs = require("fs");
+const path = require("path");
+
+async function compileCss(body) {
+    const cssText = body.cssText ?? "";
+    const hash = crypto.createHash("sha256").update(cssText).digest("hex");
+
+    if (cssCache.has(hash)) {
+        return { css: cssCache.get(hash) };
+    }
+
+    // Use the lower-level tailwindcss compile directly — it accepts raw CSS
+    // strings without needing the file-system resolver that @tailwindcss/node
+    // wraps around it. We skip @import "tailwindcss" and instead feed the
+    // pre-resolved Tailwind base CSS + the CMS custom CSS.
+    const twPkg = require.resolve("tailwindcss", {
+        paths: [path.resolve(__dirname, "../..")]
+    });
+    const { compile } = require(twPkg.replace(/\/package\.json$/, ""));
+
+    // Extract every potential class token from the raw CMS text.
+    const candidates = [...cssText.matchAll(/[^\s"'`<>{}]+/g)].map(m => m[0]);
+
+    // Compile: just the CMS custom CSS (Tailwind utilities are generated
+    // from candidates via compiler.build).
+    const input = `@import "tailwindcss";\n${cssText}`;
+
+    // Write to a temp file in the project root so the resolver can find
+    // node_modules/tailwindcss from there.
+    const projectBase = path.resolve(__dirname, "../..");
+    const tmpFile = path.join(projectBase, `.tw-tmp-${hash.slice(0, 12)}.css`);
+    fs.writeFileSync(tmpFile, input);
+
+    try {
+        const twNode = require("@tailwindcss/node");
+        const compiler = await twNode.compile(fs.readFileSync(tmpFile, "utf-8"), {
+            base: projectBase,
+            onDependency: () => { },
+        });
+        const css = compiler.build(candidates);
+
+        cssCache.set(hash, css);
+        console.log(`[compileCss] done — ${css.length} chars, cache size ${cssCache.size}`);
+        return { css };
+    } finally {
+        try { fs.unlinkSync(tmpFile); } catch { }
+    }
+}
+
 module.exports = {
     login, logout, resetPassword, setPassword, checkAuth, checkCustomerPrivilege,
     getSitemap, getPlaylists, getPlaylist, getAIPlaylists, getPlaylistsMetaData,
@@ -500,4 +560,5 @@ module.exports = {
     getEditCodeURL, showIntro, getProducer,
     getCurrentPage, getJsonDocument,
     genericCrud,
+    compileCss,
 };

@@ -1,11 +1,11 @@
 # ── Stage 1: deps ────────────────────────────────────────────────────────────
-FROM node:20-alpine AS deps
+FROM node:20-slim AS deps
 WORKDIR /app
 COPY package*.json ./
 RUN npm install --omit=dev
 
 # ── Stage 2: runner ───────────────────────────────────────────────────────────
-FROM node:20-alpine AS runner
+FROM node:20-slim AS runner
 WORKDIR /app
 ENV NODE_ENV=production
 

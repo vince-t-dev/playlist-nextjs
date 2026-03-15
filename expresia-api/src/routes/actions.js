@@ -16,7 +16,7 @@ const AUTH_REQUIRED = new Set([
 router.post("/", async (req, res, next) => {
     const body = req.body ?? {};
     const { action } = body;
-
+    console.log('[router] raw body:', JSON.stringify(body).slice(0, 200));
     if (!action) {
         return res.status(400).json({ error: "Missing action" });
     }
@@ -97,6 +97,15 @@ router.post("/", async (req, res, next) => {
                 break;
             case "getProducer":
                 result = await actions.getProducer();
+                break;
+
+            case "compileCss":
+                try {
+                    result = await actions.compileCss(body);
+                } catch (e) {
+                    console.error('[compileCss error]', e);
+                    return res.status(500).json({ error: e.message, stack: e.stack });
+                }
                 break;
 
             // Generic CRUD pass-throughs

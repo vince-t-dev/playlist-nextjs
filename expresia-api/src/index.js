@@ -17,7 +17,7 @@ app.use(rateLimit({ windowMs: 60 * 1000, max: 300 }));
 app.use(requestLogger);
 
 app.get("/health", (req, res) => res.json({ ok: true }));
-app.post("/content_api", actionRouter);
+app.use("/content_api", actionRouter);
 app.use(errorHandler);
 
 app.listen(PORT, () => {
